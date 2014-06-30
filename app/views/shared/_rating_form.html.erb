@@ -1,0 +1,48 @@
+<h1>Please leave a comment for <%= @reading.user.username.capitalize %> and Reading No: <%= @reading.id %></h1>
+
+<%= form_for(@rating) do |f| %>
+  <div class="form-group">
+    <%= f.label "This is the first rating criteria" %>
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.text_field :score01, placeholder: "Fill in rating...", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "This is the second rating criteria" %>
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.text_field :score02, placeholder: "Fill in rating...", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "This is the third rating criteria" %>
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.text_field :score03, placeholder: "Fill in rating...", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "This is the fourth rating criteria" %>
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.text_field :score04, placeholder: "Fill in rating...", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "This is the fifth rating criteria" %>
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.text_field :score05, placeholder: "Fill in rating...", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+<%= f.hidden_field :reading_id, :value => @reading.id %>
+
+  <%= f.submit "Add Rating", class: "btn btn-lg btn-primary" %>
+<% end %>

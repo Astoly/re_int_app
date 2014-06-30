@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
   
   def inside
+  	@request = current_user.requests.build
+  	@requests = Request.all
   end 
     
 end

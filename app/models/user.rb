@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :requests, dependent: :destroy
+  has_many :readings
+  has_many :ratings                         #für Bewertung als User
+  #has_many :ratings, through: :readings     #für Readerbewertung
+
   # Use friendly_id on Users
   extend FriendlyId
   friendly_id :friendify, use: :slugged

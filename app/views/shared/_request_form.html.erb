@@ -1,0 +1,12 @@
+<%= form_for(@request) do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: "Compose new readings request...", class: "form-control" %></br>
+    Add your picture here
+
+  </div>
+
+	
+    
+
+  <%= f.submit "Add Request", class: "btn btn-lg btn-primary" %>
+<% end %>

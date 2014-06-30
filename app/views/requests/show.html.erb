@@ -1,0 +1,20 @@
+<div class="col-md-8">
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+  	<h3 class="panel-title"><%= @request.user.username.capitalize %></h3>
+  	<p class="help-block">Request posted <%= time_ago_in_words(@request.created_at) %> ago</br>
+    Received <%#= pluralize(@request.readings.count, "Reading") %></p></div>
+  <div class="panel-body">
+    <p><%= simple_format(@request.content) %></p> 
+    <%#= image_tag(@request.avatar.large_avatar)%>
+  </div>
+  
+</div>
+</br>
+
+
+
+</div>
+
+

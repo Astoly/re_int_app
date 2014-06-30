@@ -1,3 +1,7 @@
 <% title("Home Page") %>
-<h1>Home Page <small>views/pages/home.html.erb</small></h1>
-<p>This is your home page. Use the menu at the top to sign in / sign up / sign out.</p>
+<div class="jumbotron">
+  <h1>Hello, Sangha!</h1>
+  <p>This is your next step for taking the intelligence of the Thomas Hübl Sangha into action.</p>
+  <p>Send requests for a reading. It´s so easy. Upload a picture, add a short info to that. That´s it!</p>
+  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+</div>
