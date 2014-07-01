@@ -3,8 +3,8 @@
 <div class="panel panel-success">
   <div class="panel-heading">
   	<h3 class="panel-title"><%= @request.user.username.capitalize %></h3>
-  	<p class="help-block">Request posted <%= time_ago_in_words(@request.created_at) %> ago</br>
-    Received <%= pluralize(@request.readings.count, "Reading") %></p></div>
+  	<p class="help-block"><i class="fa fa-clock-o"></i> Request posted <%= time_ago_in_words(@request.created_at) %> ago</br>
+    <i class="fa fa-heart-o"></i> Received <%= pluralize(@request.readings.count, "Reading") %></p></div>
   <div class="panel-body">
     <p><%= simple_format(@request.content) %></p> 
     <%= image_tag(@request.avatar.large_avatar)%>
@@ -13,7 +13,7 @@
 </div>
 </br>
 
-<% if current_user.reader? && @request.readings.count <= 1 %>
+<% if current_user.reader? && @request.readings.count <= 1 && current_user != @request.user %>
   <div class="panel panel-info">
     <div class="panel-heading">
       <h3 class="panel-title">Post your reading here</h3>
@@ -33,7 +33,7 @@
 			<div class="panel panel-default">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title"><%= reading.user.username.capitalize %></h3>
-			  	<p class="help-block">Reading posted <%= time_ago_in_words(reading.created_at) %> ago</p></div>
+			  	<p class="help-block"><i class="fa fa-clock-o"></i> Reading posted <%= time_ago_in_words(reading.created_at) %> ago</p></div>
 			  	<div class="panel-body">
 			      <p><%= simple_format(reading.content) %></p>   
             <% if current_user == Request.find(params[:id]).user %>

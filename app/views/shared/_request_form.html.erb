@@ -1,7 +1,7 @@
 <%= form_for @request, :html => {:multipart => true} do |f| %>
   <div class="form-group">
     <%= f.text_area :content, placeholder: "Compose new readings request...", class: "form-control" %></br>
-    Add your picture here
+    <i class="fa fa-picture-o"></i> Add your picture here
     <%= f.file_field :avatar %>
   </div>
 

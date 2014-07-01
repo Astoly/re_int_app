@@ -5,7 +5,7 @@
   <%= link_to "edit my profile", edit_user_registration_path %>
 </p>
 <p>
-  <%= pluralize(current_user.requests.count, "Reading Request") %></br>
-  <%= pluralize(current_user.readings.count, "Given Reading") %>
+  <i class="fa fa-sign-in"></i> <%= pluralize(current_user.requests.count, "Reading Request") %></br>
+  <i class="fa fa-sign-out"></i> <%= pluralize(current_user.readings.count, "Given Reading") %>
 </p>
 
