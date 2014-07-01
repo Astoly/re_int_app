@@ -4,7 +4,7 @@
   <div class="panel-heading">
   	<h3 class="panel-title"><%= @request.user.username.capitalize %></h3>
   	<p class="help-block">Request posted <%= time_ago_in_words(@request.created_at) %> ago</br>
-    Received <%#= pluralize(@request.readings.count, "Reading") %></p></div>
+    Received <%= pluralize(@request.readings.count, "Reading") %></p></div>
   <div class="panel-body">
     <p><%= simple_format(@request.content) %></p> 
     <%#= image_tag(@request.avatar.large_avatar)%>
@@ -13,7 +13,40 @@
 </div>
 </br>
 
+<% if current_user.reader? && @request.readings.count <= 1 %>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Post your reading here</h3>
+      <p class="help-block">Write a short and helpful text.</div>
+    <div class="panel-body">
+      <%= render 'shared/reading_form' %>
+    </div>
+  </div>
+  </br>
+<% end %>
 
+<% if @request.readings.any? %>
+  <h3>Readings from other users</h3>
+  <ul class="list-group">
+    <% @request.readings.each do |reading| %>
+		<li class="list-group-item">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title"><%= reading.user.username.capitalize %></h3>
+			  	<p class="help-block">Reading posted <%= time_ago_in_words(reading.created_at) %> ago</p></div>
+			  	<div class="panel-body">
+			      <p><%= simple_format(reading.content) %></p>   
+            <% if current_user == Request.find(params[:id]).user %>
+            <%= link_to "Leave a Rating", reading_path(reading), class: "btn btn-md btn-primary" %>
+            <% end %>
+			  	</div>
+
+			</div>
+		</li>
+	<% end %>
+  </ul>
+
+<% end %>
 
 </div>
 

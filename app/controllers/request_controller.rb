@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
     #@requests = @user.requests.paginate(page: params[:page])
     @readings = Reading.all#.paginate(page: params[:page])
     @reading  = current_user.readings.build
-    # @rating   = current_user.ratings.build
+    @rating   = current_user.ratings.build
 
   end
 

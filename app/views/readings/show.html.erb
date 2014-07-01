@@ -1,0 +1,14 @@
+<li class="list-group-item">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+	  <h3 class="panel-title"><%= @reading.user.username.capitalize %></h3>
+	  <p class="help-block">Reading posted <%= time_ago_in_words(@reading.created_at) %> ago</p>
+	</div>
+	<div class="panel-body">
+	  <p><%= simple_format(@reading.content) %></p>
+	</div>
+  </div>
+  </br>  
+  <%= render 'shared/rating_form' %> 
+</li>
+
