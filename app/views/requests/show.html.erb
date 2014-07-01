@@ -7,7 +7,7 @@
     Received <%= pluralize(@request.readings.count, "Reading") %></p></div>
   <div class="panel-body">
     <p><%= simple_format(@request.content) %></p> 
-    <%#= image_tag(@request.avatar.large_avatar)%>
+    <%= image_tag(@request.avatar.large_avatar)%>
   </div>
   
 </div>

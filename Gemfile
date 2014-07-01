@@ -8,6 +8,12 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 1.5.3'
 gem 'bcrypt-ruby', '~> 3.1.2'
+# for aws cloud storage
+gem 'fog'
+# photo resizing
+gem "mini_magick"
+# file upload solution
+gem 'carrierwave'
 
 group :doc do
   gem 'sdoc', require: false

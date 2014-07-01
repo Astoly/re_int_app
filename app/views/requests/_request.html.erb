@@ -6,7 +6,7 @@
 
   <div class="panel-body">
     <p><%= simple_format(request.content) %></p>
-    <p><%#= image_tag(request.avatar.large_avatar)%></p>
+    <p><%= image_tag(request.avatar.large_avatar)%></p>
 
     <% if current_user.reader? %>
     <%= link_to "Show Request and give a Reading", request, class: "btn btn-md btn-primary" %>
