@@ -6,6 +6,9 @@
 </p>
 <p>
   <i class="fa fa-sign-in"></i> <%= pluralize(current_user.requests.count, "Reading Request") %></br>
+
+  <% if current_user.reader? %>
   <i class="fa fa-sign-out"></i> <%= pluralize(current_user.readings.count, "Given Reading") %>
+  <% end %>
 </p>
 

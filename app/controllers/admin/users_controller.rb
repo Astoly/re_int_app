@@ -32,6 +32,7 @@ class Admin::UsersController < Admin::BaseController
     if current_user.id != @user.id
       @user.admin = new_params[:admin]=="0" ? false : true
       @user.locked = new_params[:locked]=="0" ? false : true
+      @user.reader = new_params[:reader]=="0" ? false : true
     end
     
     if @user.valid?
@@ -61,7 +62,8 @@ class Admin::UsersController < Admin::BaseController
     :password,
     :password_confirmation,
     :admin,
-    :locked
+    :locked,
+    :reader
     )
   end
   

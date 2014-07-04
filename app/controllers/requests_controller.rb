@@ -1,6 +1,10 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
 
+def new
+    @request = current_user.requests.build
+  end
+
  def show
     #@requests = Request.all
     #@user = User.find(params[:id])
