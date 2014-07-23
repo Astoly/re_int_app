@@ -1,6 +1,14 @@
 class ReadingsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    #@request = Request.find(params[:request_id])
+    @requests = Request.all(:include => :readings)
+
+    @readings = Reading.all
+  end
+
+
   def show
     # @request = Request.find(params[:id])
     @reading = Reading.find(params[:id])

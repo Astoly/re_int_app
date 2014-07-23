@@ -1,0 +1,25 @@
+
+
+
+<% if @request.readings.any? && current_user == @request.user %>
+  <h3>Readings</h3>
+  <ul class="list-group">
+    <% @request.readings.each do |reading| %>
+		<li class="list-group-item">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title"><%= reading.user.username.capitalize %></h3>
+			  	<p class="help-block"><i class="fa fa-clock-o"></i> Reading posted <%= time_ago_in_words(reading.created_at) %> ago</p></div>
+			  	<div class="panel-body">
+			      <p><%= simple_format(reading.content) %></p>   
+            <% if current_user == Request.find(params[:id]).user %>
+            <%= link_to "Leave a Rating", reading_path(reading), class: "btn btn-md btn-primary" %>
+            <% end %>
+			  	</div>
+
+			</div>
+		</li>
+	<% end %>
+  </ul>
+
+<% end %>

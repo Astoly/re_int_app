@@ -1,0 +1,21 @@
+<% title("Open Requests") %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'shared/user_info' %>
+
+    <%#= render 'shared/request_form' %>
+
+    <%= link_to "Create a Request!", new_request_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="col-md-8">
+    
+    <% if @request.readings.count <= 1 %>
+      <h3>All open Reading Requests (<%= @requests.count %>)</h3>
+      <%= render @requests %>
+
+	<% end %>
+
+  </div>
+</div>

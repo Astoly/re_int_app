@@ -1,11 +1,18 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
 
-def new
+  def new
     @request = current_user.requests.build
   end
 
- def show
+  def index
+    #@requests = Request.all
+    #@requests = @user.requests#(page: params[:page])
+    #@request = request.find_by_current_user(params[:surrent_user])
+    #@reading = Reading.find(params[:reading_id])
+  end
+
+  def show
     #@requests = Request.all
     #@user = User.find(params[:id])
     @request = Request.find(params[:id])

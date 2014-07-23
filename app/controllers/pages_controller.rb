@@ -10,5 +10,8 @@ class PagesController < ApplicationController
   	@request = current_user.requests.build
   	@requests = Request.all
   end 
+
+  def about
+  end
     
 end
