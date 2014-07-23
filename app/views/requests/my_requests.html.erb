@@ -1,0 +1,23 @@
+<% title("My Requests") %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'shared/user_info' %>
+
+    <%#= render 'shared/request_form' %>
+
+    <%= link_to "Create a Request!", new_request_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="col-md-8">
+    <% if @current_user.requests.any? %>
+      <h3>My Requests (<%= @current_user.requests.count %>)</h3>
+      <%= render @requests %>
+      <%#= render partial: 'requests/request', collection: @requests %>
+      <%#= render 'shared/request' %>
+    <% else %>
+      <h3>No Requests created yet</h3>
+  	<% end %>
+
+  </div>
+</div>

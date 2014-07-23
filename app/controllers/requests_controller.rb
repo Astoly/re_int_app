@@ -1,8 +1,20 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
 
-def new
+  def new
     @request = current_user.requests.build
+  end
+
+  def my_requests #Es sollen alle Requests des users angezeigt werden. Neuste zuerst  
+    if current_user
+     @requests = current_user.requests
+    end
+  end
+
+  def open_requests
+    #Show Request that have less than 2 Readings; oldest on top
+    # @open_requests = Requests.all
+    @requests = Request.all
   end
 
  def show
@@ -27,7 +39,7 @@ def new
       #redirect_to root_url
       flash[:alert] = "Content and picture can´t be empty."
       @requests = []
-      render "pages/inside"
+      render "requests/new"
     end
   end
 

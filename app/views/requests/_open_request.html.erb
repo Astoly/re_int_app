@@ -1,3 +1,4 @@
+<% if request.readings.count <= 1 %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><%= request.user.username.capitalize %></h3>
@@ -13,3 +14,4 @@
     <% end %>
   </div>
 </div>
+<% end %>
