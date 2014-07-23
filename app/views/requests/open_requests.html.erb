@@ -1,0 +1,21 @@
+#Render all open Requests and show a Link to the show page of the Request
+<% title("Open Requests") %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'shared/user_info' %>
+
+    <%#= render 'shared/request_form' %>
+
+    <%= link_to "Create a Request!", new_request_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="col-md-8">
+    <% if @requests.any? %>
+      <h3>Open Requests</h3>
+      <%= render @requests %>
+
+	<% end %>
+
+  </div>
+</div>

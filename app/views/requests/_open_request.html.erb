@@ -1,3 +1,4 @@
+<% if request.readings.count <= 1 %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><%= request.user.username.capitalize %></h3>
@@ -9,8 +10,8 @@
     <p><%= image_tag(request.avatar.medium_avatar)%></p>
 
     <% if current_user.reader? %>
-    <%= link_to "Give a Reading", request, class: "btn btn-md btn-primary" %>
+    <%= link_to "Show Request and give a Reading", request, class: "btn btn-md btn-primary" %>
     <% end %>
   </div>
 </div>
-
+<% end %>
