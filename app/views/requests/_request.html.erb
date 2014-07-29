@@ -8,9 +8,11 @@
     <p><%= simple_format(request.content) %></p>
     <p><%= image_tag(request.avatar.medium_avatar)%></p>
 
-    <% if current_user.reader? %>
-    <%= link_to "Give a Reading", request, class: "btn btn-md btn-primary" %>
-    <% end %>
+    <%# if current_user.reader? %>
+      <%#= link_to "Give a Reading", request, class: "btn btn-md btn-primary" %>
+    <%# else %>
+      <%= link_to "Show Request", request, class: "btn btn-md btn-primary" %>
+    <%# end %>
   </div>
 </div>
 

@@ -141,7 +141,7 @@ $navbar-default-border: darken($navbar-default-bg, 7%);
 // -> Links
 $navbar-default-link-color: #777777; 
 $navbar-default-link-hover-color: #333333; 
-$navbar-default-link-hover-bg: $navbar-default-bg; 
+$navbar-default-link-hover-bg: #eee; 
 $navbar-default-link-active-color: #555555; 
 $navbar-default-link-active-bg: darken($navbar-default-bg, 7%); 
 $navbar-default-link-disabled-color: #cccccc; 
@@ -163,7 +163,7 @@ $navbar-inverse-border: darken($navbar-inverse-bg, 7%);
 // -> Links
 $navbar-inverse-link-color: #eeeeee; 
 $navbar-inverse-link-hover-color: #ffffff; 
-$navbar-inverse-link-hover-bg: $navbar-inverse-bg; 
+$navbar-inverse-link-hover-bg: #333; 
 $navbar-inverse-link-active-color: #ffffff; 
 $navbar-inverse-link-active-bg: darken($navbar-inverse-bg, 7%); 
 $navbar-inverse-link-disabled-color: #444444; 
@@ -366,9 +366,7 @@ img{
 
 //***********************************************************
 // NAVBAR
-.navbar-brand {
-  font-size: inherit;      
-}
+
 //***********************************************************
 
 //***********************************************************

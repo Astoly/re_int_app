@@ -12,8 +12,8 @@
   <div class="col-md-8">
     <% if @requests.any? %>
       <h3>All Reading Requests (<%= @requests.count %>)</h3>
+      <%#= render @requests %>
       <%= render 'shared/request' %>
-
 	<% end %>
 
   </div>

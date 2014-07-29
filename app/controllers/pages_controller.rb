@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   def inside
   	@request = current_user.requests.build
   	@requests = Request.all
+    @open_requests = Request.all
   end 
 
   def about
