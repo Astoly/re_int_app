@@ -1,24 +1,18 @@
 class ReadingsController < ApplicationController
   before_action :authenticate_user!
+  #before_filter :require_permission, only: :show
 
   def index
-    #@request = Request.find(params[:request_id])
-    @requests = Request.all(:include => :readings)
-
-    @readings = Reading.all
+    if current_user
+     @readings = current_user.readings
+    end
   end
 
 
   def show
-    # @request = Request.find(params[:id])
+    #@request = Request.find(params[:reading][:request_id])
     @reading = Reading.find(params[:id])
-    @readings = Reading.all
-    # @request = Request.all
-    # @readings = Reading.all#.paginate(page: params[:page])
-    # @reading = current_user.readings.build
-    
     @rating = current_user.ratings.build
-    # @ratings = Rating.all
   end
 
   def create
@@ -36,6 +30,14 @@ class ReadingsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def require_permission
+    if current_user != Request.find(params[:reading][:request_id]).user 
+      redirect_to inside_path
+      flash[:alert] =  "This Reading is private." 
+      #Or do something else here
+    end
   end
 
   private

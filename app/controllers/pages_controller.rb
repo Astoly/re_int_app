@@ -8,8 +8,9 @@ class PagesController < ApplicationController
   
   def inside
   	@request = current_user.requests.build
-  	@requests = Request.all
+  	@requests = Request.all.page params[:page]
     @open_requests = Request.all
+    #@requests = Request.order(:name).page params[:page]
   end 
 
   def about

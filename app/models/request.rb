@@ -8,4 +8,7 @@ class Request < ActiveRecord::Base
 	# Avatar uploader using carrierwave
   	mount_uploader :avatar, AvatarUploader
 
+  	# Pagination
+ 	paginates_per 5
+
 end

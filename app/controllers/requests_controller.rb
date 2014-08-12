@@ -20,7 +20,6 @@ class RequestsController < ApplicationController
 
   def open_requests
     #Show Request that have less than 2 Readings; oldest on top
-    # @open_requests = Requests.all
     @requests = Request.all
   end
 

@@ -37,7 +37,7 @@
 			  	<div class="panel-body">
 			      <p><%= simple_format(reading.content) %></p>   
             <% if current_user == Request.find(params[:id]).user %>
-            <%= link_to "Leave a Rating", reading_path(reading), class: "btn btn-md btn-primary" %>
+              <%= link_to "Leave a Rating", reading_path(reading), class: "btn btn-md btn-primary" %>
             <% end %>
 			  	</div>
 

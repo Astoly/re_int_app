@@ -1,4 +1,4 @@
-<% title("Open Requests") %>
+<% title("Given Readings") %>
 
 <div class="row">
   <div class="col-md-4">
@@ -9,13 +9,29 @@
     <%= link_to "Create a Request!", new_request_path, class: "btn btn-lg btn-primary" %>
   </div>
 
-  <div class="col-md-8">
-    
-    <% if @request.readings.count <= 1 %>
-      <h3>All open Reading Requests (<%= @requests.count %>)</h3>
-      <%= render @requests %>
+ <div class="col-md-8">
+    <% if @current_user.readings.any? %>
+      <h3>Given Readings (<%= @current_user.readings.count %>)</h3>
+      <% @readings.each do |reading| %>
+        
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= reading.user.username.capitalize %></h3>
+              <p class="help-block"><i class="fa fa-clock-o"></i> 
+                Reading posted <%= time_ago_in_words(reading.created_at) %> ago
+              </p></div>
 
-	<% end %>
+            <div class="panel-body">
+              <p><%= simple_format(reading.content) %></p>
+                            
+              <%= link_to "Show Reading", reading, class: "btn btn-sm btn-primary" %>
+              
+            </div>
+          </div>          
+        <% end %>
+    <% else %>
+      <h3>No given Readings yet</h3>
+    <% end %>
 
   </div>
 </div>

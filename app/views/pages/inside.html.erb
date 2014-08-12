@@ -11,10 +11,14 @@
 
   <div class="col-md-8">
     <% if @requests.any? %>
-      <h3>All Reading Requests (<%= @requests.count %>)</h3>
+      <h3>All Reading Requests <%#= @requests.count %></h3>
       <%#= render @requests %>
       <%= render 'shared/request' %>
 	<% end %>
-
+  
+  <div class="text-center">
+    <p><%#= page_entries_info @requests %></p>
+    <%= paginate @requests %>
+  </div>
   </div>
 </div>
